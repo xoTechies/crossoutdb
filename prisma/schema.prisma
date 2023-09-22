@@ -13,14 +13,14 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-generator trpc {
-  provider          = "prisma-trpc-generator"
-  withZod           = true
-  withMiddleware    = false
-  withShield        = false
-  contextPath       = "../src/server/api/trpc.ts"
-  trpcOptionsPath   = "../src/trpcOptions"
-}
+// generator trpc {
+//   provider          = "prisma-trpc-generator"
+//   withZod           = true
+//   withMiddleware    = false
+//   withShield        = false
+//   contextPath       = "../src/server/api/trpc.ts"
+//   trpcOptionsPath   = "../src/trpcOptions"
+// }
 
 model Example {
     id        Int      @id @default(autoincrement())
