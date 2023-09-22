@@ -1,0 +1,136 @@
+id,name
+0,None
+1,Ammunition
+2,Appearance
+3,Auto-cannon
+4,Booster
+5,Medium cabin
+6,Cannon
+7,Component
+8,Crate
+9,Drone
+10,Paint
+11,Crossbow
+12,Engine
+13,Frontal machine gun
+14,Generator
+15,Grenade launcher
+16,Homing missile
+17,Homing missile volley
+18,Machine gun
+19,Passive melee weapon
+20,Minelayer
+21,Proximity mine
+22,Pulse accelerator
+23,Radar
+24,Radio
+25,Resource
+26,Shotgun
+27,Special module
+28,Stealth
+29,Track
+30,Turret
+31,Turret cannon
+32,Unguided rocket launcher
+33,Visor
+34,Weapon cooling
+35,Wheel
+36,Minigun
+37,Flamethrower
+38,Horn
+39,Sign
+40,Light
+41,Mechanical leg
+42,Consumable
+43,Howitzer
+44,Customization kit
+45,Meta Item
+46,Plasma emitter
+47,Hover
+48,Microfactory
+49,Combat laser
+50,Tesla cannon
+51,Protective field
+52,Sticker
+53,Harpoon
+54,Auger
+55,Light cabin
+56,Heavy cabin
+57,Tank cabin
+58,Weapon booster
+59,Catapult
+60,Flare
+61,Revolver
+62,Coupling module
+63,Rapid-fire machine gun
+64,Radiator
+65,Cooler
+66,Plasma gun
+67,Detonating module
+68,Brake light
+69,Chainsaw
+70,Hubcap
+71,Pulse rifle
+72,Nailgun
+73,Heavy wheel
+74,Medium wheel
+75,Light wheel
+76,Explosives
+77,Wheel drone
+78,Electric weapon
+79,Plasma cutter
+80,Laser drill
+81,Hologram projector
+82,Guided missile
+83,Plasma emitter booster
+84,Laser shotgun
+85,Headlights
+86,Small-calibre cannon
+87,Tesla emitter
+88,Defence module
+89,Homing rocket launcher
+90,Frontal rocket launcher
+91,Activatable melee weapon
+92,Pulse cannon
+93,Autonomous drone
+94,Tracking system
+95,Rolling-based chassis
+96,Recharge booster
+97,Frontal wheel
+98,Rocket launcher
+99,Passive defence module
+100,Plasma rocket launcher
+101,Disk launcher
+102,Precision rocket launcher
+103,Mortar
+104,Rocket artillery
+105,Optical module
+106,APC part
+107,Buggy part
+108,Bully part
+109,Bumper
+110,Bus part
+111,Container scrap
+112,Corrida part
+113,Death part
+114,Famine part
+115,Frame block
+116,Frame part
+117,Guided rocket launcher
+118,Heavy machinery part
+119,Hot Rod part
+120,Mars Rover part
+121,Pestilence part
+122,Phantom part
+123,Pipes
+124,Plane part
+125,Printed part
+126,Race car part
+127,Rolling-based movement part
+128,Scout vehicle part
+129,Strut
+130,Syndicate parts
+131,Torino part
+132,Van part
+133,War part
+134,WLP part

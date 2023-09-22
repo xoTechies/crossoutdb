@@ -6,12 +6,20 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    provider = "postgresql"
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
+}
+
+generator trpc {
+  provider          = "prisma-trpc-generator"
+  withZod           = true
+  withMiddleware    = false
+  withShield        = false
+  contextPath       = "../src/server/api/trpc.ts"
+  trpcOptionsPath   = "../src/trpcOptions"
 }
 
 model Example {
@@ -21,6 +29,225 @@ model Example {
     updatedAt DateTime @updatedAt
 
     @@index([name])
+}
+
+model Release {
+  id          Int       @id @default(autoincrement())
+  name        String
+  xoVersion   String?
+  build       String?
+  description String?
+  battlePass  String?
+  url         String?
+  startDate   DateTime?
+  endDate     DateTime?
+  active      Boolean
+  items       Item[]
+  itemStats   ItemStats[]
+  recipes     Recipe[]
+  packs       Pack[]
+}
+
+model Recipe {
+  id           Int          @id @default(autoincrement())
+  result       Item         @relation(fields: [resultItemId], references: [id])
+  resultItemId Int
+  quantity     Int
+  release      Release?     @relation(fields: [releaseId], references: [id])
+  releaseId    Int?
+  active       Boolean
+  ingredients  RecipeItem[]
+}
+
+model RecipeItem {
+  id       Int    @id @default(autoincrement())
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId Int
+  item     Item   @relation(fields: [itemId], references: [id])
+  itemId   Int
+  quantity Int
+}
+
+model Pack {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  steamAppID  Int
+  key         String?
+  coins       Int
+  release     Release?    @relation(fields: [releaseId], references: [id])
+  releaseId   Int?
+  active      Boolean
+  items       PackItem[]
+  packPrices  PackPrice[]
+
+  @@unique([steamAppID])
+}
+
+model PackItem {
+  id       Int  @id @default(autoincrement())
+  pack     Pack @relation(fields: [packId], references: [id], onDelete: Cascade)
+  packId   Int
+  item     Item @relation(fields: [itemId], references: [id])
+  itemId   Int
+  quantity Int
+}
+
+model PackPrice {
+  id        Int      @id @default(autoincrement())
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+  packId    Int
+  timestamp DateTime @default(now())
+  priceUSD  Int
+  priceEUR  Int
+  priceGBP  Int
+  priceRUB  Int
+  discount  Int
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  items Item[]
+}
+
+model Faction {
+  id    Int    @id @default(autoincrement())
+  name  String
+  items Item[]
+}
+
+model Type {
+  id    Int    @id @default(autoincrement())
+  name  String
+  items Item[]
+}
+
+model Rarity {
+  id             Int    @id @default(autoincrement())
+  name           String
+  order          Int
+  primaryColor   String
+  secondaryColor String
+  items          Item[]
+}
+
+model Item {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  marketDef   String?
+  quantity    Int
+  type        Type     @relation(fields: [typeId], references: [id])
+  typeId      Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  faction     Faction  @relation(fields: [factionId], references: [id])
+  factionId   Int
+  rarity      Rarity   @relation(fields: [rarityId], references: [id])
+  rarityId    Int
+  level       Int
+  release     Release  @relation(fields: [releaseId], references: [id])
+  releaseId   Int
+  active      Boolean
+  logId       Int?
+
+  itemStats     ItemStats[]
+  market        Market[]
+  badgeExchange BadgeExchange[]
+  recipes       Recipe[]
+  recipeItems   RecipeItem[]
+  packItems     PackItem[]
+  synergyItems  SynergyItem[]
+
+  // Define a unique constraint on itemId
+  @@unique([marketDef])
+}
+
+model ItemStats {
+  id                         Int      @id @default(autoincrement())
+  item                       Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId                     Int
+  user                       User     @relation(fields: [userId], references: [id])
+  userId                     String
+  release                    Release? @relation(fields: [releaseId], references: [id])
+  releaseId                  Int?
+  timestamp                  DateTime @default(now())
+  increasesDurability        Int?
+  increasesReputationPercent Int?
+  topSpeed                   Int?
+  ps                         Int?
+  damage                     Float?
+  fireRate                   Float?
+  range                      Float?
+  accuracy                   Float?
+  timeToOverheating          Float?
+  maxAmmo                    Int?
+  blastPower                 Float?
+  addsEnergy                 Int?
+  tonnage                    Int?
+  massLimit                  Int?
+  maxCabinSpeed              Int?
+  maxChassisSpeed            Int?
+  power                      Int?
+  cabinPower                 Float?
+  fuelReserves               Int?
+  featureBulletPercent       Int?
+  featureMeleePercent        Int?
+  featureBlastPercent        Int?
+  featureFirePercent         Int?
+  featurePassthroughPercent  Int?
+  durability                 Int?
+  energyDrain                Int?
+  mass                       Int?
+  perks                      String?
+}
+
+model Synergy {
+  id            Int           @id @default(autoincrement())
+  name          String
+  itemToSynergy SynergyItem[]
+}
+
+model SynergyItem {
+  synergy   Synergy @relation(fields: [synergyId], references: [id], onDelete: Cascade)
+  synergyId Int
+  item      Item    @relation(fields: [itemId], references: [id])
+  itemId    Int
+
+  @@id([synergyId, itemId])
+}
+
+model Market {
+  id           Int      @id @default(autoincrement())
+  item         Item     @relation(fields: [itemId], references: [id])
+  itemId       Int
+  marketDef    String
+  sellPriceMin Float
+  sellOrders   Int
+  buyPriceMax  Float
+  buyOrders    Int
+  timestamp    DateTime @default(now())
+}
+
+model BadgeExchange {
+  id        Int      @id @default(autoincrement())
+  item      Item     @relation(fields: [itemId], references: [id])
+  itemId    Int
+  quantity  Int
+  badges    Int
+  active    Boolean
+  timestamp DateTime @default(now())
+}
+
+model log {
+  id           Int      @id @default(autoincrement())
+  timestamp    DateTime @default(now())
+  user         User    @relation(fields: [userId], references: [id])
+  userId       String
+  tableChanged String
+  recordId     Int
+  record       Json
 }
 
 // Necessary for Next auth
@@ -58,6 +285,8 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    itemStats     ItemStats[]
+    log           log[]
 }
 
 model VerificationToken {

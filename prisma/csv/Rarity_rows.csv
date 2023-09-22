@@ -1,0 +1,8 @@
+id,name,order,primaryColor,secondaryColor
+1,Common,1,FFFFFF,4A4A4A
+2,Rare,2,0066CC,001D3B
+3,Epic,4,B800FF,35004A
+4,Legendary,5,FF9F3F,4A2E12
+5,Relic,6,FF6600,4A1D00
+6,Special,3,33CCCC,0E3B3B
+99,Base,99,FFFFFF,4A4A4A

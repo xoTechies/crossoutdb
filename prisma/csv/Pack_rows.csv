@@ -1,0 +1,49 @@
+id,name,description,steamAppID,coins,releaseId,active,key
+1,Arachnophobia,,759590,3000,,true,arachnophobia
+2,Arsonist,,783870,3800,,true,arsonist
+3,Frostburn,,764460,2100,,true,frostburn
+4,Iron Shield,,806120,3400,,true,ironshield
+5,Pandemic,,809740,1500,,true,pandemic
+6,Snake Bite,,708490,650,,true,snakebite
+7,Spectral Hunter,,853170,2650,,true,spectralhunter
+8,The Inventor,,719670,4200,,true,theinventor
+9,The Tramp,,708500,2650,,true,thetramp
+10,Third Half,,878630,500,,true,thirdhalf
+11,Wasteland Warrior,,643740,1500,,true,wastelandwarrior
+12,Wild Hunt,,812760,1000,,true,wildhunt
+13,Corrida,,887050,1500,,true,corrida
+14,Insomnia,,893760,650,,true,insomnia
+15,Drive,,960290,1250,,true,drive
+16,War,,1034510,1500,,true,horsemenofapocalypsewar
+17,War (Deluxe Edition),,1034511,4000,,true,horsemenofapocalypsewardeluxe
+18,Death,,1049120,1500,,true,horsemenofapocalypsedeath
+19,Death (Deluxe Edition),,1049121,4000,,true,horsemenofapocalypsedeathdeluxe
+20,Fresh Blood,,1059100,1500,,true,freshblood
+21,Famine,,1076740,1500,,true,horsemenofapocalypsefamine
+22,Famine (Deluxe Edition),,1076741,4000,,true,horsemenofapocalypsefaminedeluxe
+23,Pestilence,,1141790,1500,,true,horsemenofapocalypsepestilence
+24,Born Free,,1158240,800,,true,bornfree
+25,Born to Fly,,1,1300,,true,borntofly
+26,Day of the Dead,,1158241,1500,,true,dayofthedead
+27,Frostburn (Deluxe),,1192400,4000,,true,frostburndeluxe
+28,Polymorph,,1193840,2000,,true,polymorph
+29,Immortal Warrior,,2,3400,,true,immortalwarrior
+30,No to War,,1015950,1500,,true,notowar
+31,Assault Force: Charlie-7,,1254240,1500,,true,assaultforcecharlie7
+32,Assault Force: Tango-1,,1276340,1500,,true,assaultforcetango1
+33,Adrenaline,,1356210,1500,,true,adrenaline
+34,Adrenaline (Deluxe),,1356211,4000,,true,adrenalinedeluxe
+35,Phantom,,1437610,1500,,true,phantom
+36,Phantom (Deluxe),,1437611,4000,,true,phantomdeluxe
+37,Explosive Santa,,1475680,4000,,true,explosivesanta
+38,Triad: The Keeper,,1558690,1500,,true,triadthekeeper
+39,Triad: The Keeper (Deluxe),,1558691,4000,,true,triadthekeeperdeluxe
+40,Arachnida,,1563120,3000,,true,arachnida
+41,Fresh Blood (Deluxe),,1584790,4000,,true,freshblooddeluxe
+42,Assault Force: Bravo-6,,1585870,1500,,true,assaultforcebravo6
+43,Assault Force: Bravo-6 (Lite),,1598850,0,,true,assaultforcebravo6lite
+44,Assault Force: Bravo-6 (Deluxe),,1585871,4000,,true,assaultforcebravo6deluxe
+45,Triad: The Patron,,1637471,1500,,true,triadthepatron
+46,Triad: The Patron (Lite),,1637470,0,,true,triadthepatronlite
+47,Triad: The Patron (Deluxe),,1637472,4000,,true,triadthepatrondeluxe
+48,The Creation,,1637530,4200,,true,thecreation

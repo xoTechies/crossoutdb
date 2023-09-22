@@ -8,6 +8,18 @@ await import("./src/env.mjs");
 const config = {
   reactStrictMode: true,
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        port: '',
+        pathname: '/avatars/**',
+      },
+    ],
+  },
+
+
   /**
    * If you are using `appDir` then you must comment the below `i18n` config out.
    *
