@@ -18,6 +18,7 @@ const itemCreateSchema = z.object({
   name: z.string(),
   rarityId: z.number(),
   typeId: z.number(),
+  type: z.string(),
   categoryId: z.number(),
   eventId: z.number(),
   quantity: z.number(),

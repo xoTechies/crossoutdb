@@ -3,6 +3,7 @@ import type { Item } from "@prisma/client";
 import React, { useMemo } from "react";
 import { MaterialReactTable, type MRT_ColumnDef } from "material-react-table";
 import { api } from "~/utils/api";
+import Link from "next/link";
 
 export const Market = () => {
   const { data = [] } = api.item.getAll.useQuery();
@@ -18,6 +19,7 @@ export const Market = () => {
       {
         accessorKey: "name",
         header: "name",
+        Cell: props => <Link href={`/item/${props.row.original.id}`}>{props.row.original.name}</Link>,
         // size: 150,
       },
       {

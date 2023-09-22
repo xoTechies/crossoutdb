@@ -1,13 +1,14 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Header = () => {
   const { data: sessionData } = useSession();
 
   return (
-    <div className="navbar bg-primary text-primary-content">
+    <div className="navbar bg-primary text-primary-content sticky top-0">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl normal-case">
+        <Link href="/">
           <Image
             src="/images/crossoutdb_logo.png"
             alt="Crossout DB"
@@ -15,7 +16,7 @@ export const Header = () => {
             height={40}
             className="inline-block"
           />
-        </a>
+        </Link>
       </div>
       
       <div className="navbar-center hidden lg:flex">
